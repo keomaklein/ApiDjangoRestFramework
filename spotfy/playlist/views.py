@@ -27,8 +27,6 @@ class MusicList(generics.ListCreateAPIView):
 class MusicDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Music.objects.all()
     serializer_class = MusicSerializer
-    #authentication_classes = [SessionAuthentication]
-    #permission_classes = (IsAuthenticated, )
     authentication_classes = [OAuth2Authentication, SessionAuthentication]
     permission_classes = [Or(IsAdminUser, TokenHasReadWriteScope)]
     filter_backends = (filters.DjangoFilterBackend,)

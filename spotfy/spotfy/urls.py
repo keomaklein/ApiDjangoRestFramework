@@ -6,6 +6,7 @@ urlpatterns = [
 
     url(r'^o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
 
-    url(r'^', include('playlist.urls')),
+    url(r'^', include('core.urls')),
+    url(r'^playlist/', include('playlist.urls')),
     url(r'^admin/', admin.site.urls),
 ]
